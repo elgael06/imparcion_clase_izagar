@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import { useStore } from 'react-redux';
+import './css/main.css';
+import Tabla from './components/Tabla';
+import Usuario from './components/AddUsuario';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+	//store
+	const store = useStore();
+	//
+	const {lista_usuarios} = store.getState();
+	//estatus
+	 const [usuarios, setusuarios] = useState(lista_usuarios);
+	 //funciones
+	 const agregar=usuario=>{
+		 let lista = usuarios.map(e=>e);
+		store.dispatch({usuario:usuario,type:"ADD_LIST"});
+		setusuarios(lista);
+	 }
+	 console.log(store.getState())
+	return (<div className="App">
+		<h1>Usuarios</h1>
+		<hr /> 
+		<Usuario agregar_lista={agregar} />
+		<Tabla lista={lista_usuarios} />
+	</div>);
 }
 
 export default App;
