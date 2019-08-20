@@ -1,8 +1,11 @@
+//librerias
 import React,{useState} from 'react';
 import { useStore } from 'react-redux';
-import './css/main.css';
+//componentes
 import Tabla from './components/Tabla';
 import Usuario from './components/AddUsuario';
+//estilos
+import './css/main.css';
 
 const App = () => {
 	//store
