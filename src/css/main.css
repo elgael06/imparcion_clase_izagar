@@ -1,4 +1,13 @@
 .App{
     text-align: center;
-    
+    width: 90%;
+    padding: 5%;
+}
+
+table{
+    width: 100%
+}
+
+thead{
+    background: rgb(231, 227, 227)
 }

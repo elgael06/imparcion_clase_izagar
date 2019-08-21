@@ -5,18 +5,19 @@ import remove_user_to_list from '../actions/remove_user_to_list';
 const Tabla=({lista,remover})=>{
 	//
     return(<div style={{width:"40%",float:"left"}}>
-        <table>
+        <table >
           <thead>
               <tr>
               <th>ID</th>
               <th>Nombre</th>
+              <th>Accion</th>
               </tr>
           </thead>
           <tbody>
               {lista.map((e,i)=>
                   <tr key={i+1}>
                       <td>{i+1}</td>
-                      <td>{e}</td>
+                      <td style={{textAlign:"left"}}><b>{e}</b></td>
                       <td><u onClick={()=>remover(i)}>remover</u></td>
               </tr>)}
           </tbody>

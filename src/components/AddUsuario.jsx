@@ -15,7 +15,7 @@ const Usuario =({usuario,cambiar,agregar})=>{
       }():
       alert("Coloque Nombre !!!");
     }
-    return(<form style={{width:"40%",float:"left",padding:10,textAlign:"left"}}>
+    return(<form style={{width:"40%",float:"left",textAlign:"left"}}>
         <label >Agregar Usuario : </label>
         <br />
         <input type="text" value={usuario} onChange={e=>cambiar(e.target.value)} />
