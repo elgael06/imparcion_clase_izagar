@@ -5,7 +5,7 @@ import reducers from '../reducers';
 
 const initialState ={
     usuario:"",
-    lista_usuarios:[]
+    usuarios:[]
 }
 
 const store = createStore(reducers,initialState);

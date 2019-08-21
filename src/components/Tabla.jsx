@@ -22,7 +22,7 @@ const Tabla=({lista})=>{
     </div>);
   }
   const mapStateProps=state=>({
-    lista:state.lista_usuarios
+    lista:state.usuarios
   });
   
   export default  connect(mapStateProps,{})(Tabla);

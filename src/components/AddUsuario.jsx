@@ -1,5 +1,9 @@
+//librerias
 import React from 'react';
 import { connect } from 'react-redux';
+//actions
+import add_user from '../actions/add_user';
+import add_user_to_list from '../actions/add_user_to_list';
 
 const Usuario =({usuario,cambiar,agregar})=>{
     //funciones
@@ -25,16 +29,10 @@ const mapStateProps=state=>({
 
 const mapDispatchToProps = dispatch =>({
     cambiar(usuario){
-      dispatch({
-          type:"ADD_USER",
-          usuario
-      })
+      dispatch(add_user(usuario));
       },
       agregar(usuario){
-        dispatch({
-          type:"ADD_LIST",
-          usuario
-        })
+        dispatch(add_user_to_list(usuario));
     }
 })
 
