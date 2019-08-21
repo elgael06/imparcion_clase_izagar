@@ -1,24 +1,41 @@
-import React,{useState} from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 
-const Usuario =({agregar_lista})=>{
-    //estado
-    const [nombre,setNombre] = useState("");
+const Usuario =({usuario,cambiar,agregar})=>{
     //funciones
-    const agregar= e =>{
+    const comprobar_agregar= e =>{
       e.preventDefault();
-      nombre !=="" ?function (){
-          agregar_lista(nombre);
-          setNombre("");
-          
+      usuario !=="" ?function (){
+        agregar(usuario);
+        cambiar("");
       }():
       alert("Coloque Nombre !!!");
     }
     return(<form style={{width:"40%",float:"left"}}>
         <label>Agregar Usuario : </label>
         <br />
-        <input type="text" value={nombre} onChange={e=>setNombre(e.target.value)} />
-        <button onClick={agregar}>Agregar</button>
+        <input type="text" value={usuario} onChange={e=>cambiar(e.target.value)} />
+        <button onClick={comprobar_agregar}>Agregar</button>
     </form>);
   }
 
-  export default Usuario;
+const mapStateProps=state=>({
+  usuario:state.usuario
+})
+
+const mapDispatchToProps = dispatch =>({
+    cambiar(usuario){
+      dispatch({
+          type:"ADD_USER",
+          usuario
+      })
+      },
+      agregar(usuario){
+        dispatch({
+          type:"ADD_LIST",
+          usuario
+        })
+    }
+})
+
+  export default connect(mapStateProps,mapDispatchToProps)( Usuario);

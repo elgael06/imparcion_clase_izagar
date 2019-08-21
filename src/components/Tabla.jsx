@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const Tabla=({lista})=>{
+	//
     return(<div style={{width:"40%",float:"left"}}>
         <table>
           <thead>
@@ -19,5 +21,8 @@ const Tabla=({lista})=>{
       </table>
     </div>);
   }
-
-  export default Tabla;
+  const mapStateProps=state=>({
+    lista:state.lista_usuarios
+  });
+  
+  export default  connect(mapStateProps,{})(Tabla);
